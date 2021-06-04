@@ -3,7 +3,7 @@ const express = require('express')
 
 const Action = require('./actions-model')
 
-const router = express.Router
+const router = express.Router()
 
 
 

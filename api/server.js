@@ -1,7 +1,8 @@
 const express = require('express');
+
 const server = express();
 
-const actionsRouter = require('./actions/actions-router')
+const actionsRouter = require("./actions/actions-router")
 const projectsRouter = require('./projects/projects-router')
 
 server.use(express.json())
@@ -10,14 +11,11 @@ server.use(express.json())
 // Build your projects router in /api/projects/projects-router.js
 // Do NOT `server.listen()` inside this file!
 
-server.use('api/actions', actionsRouter)
-server.use('api/projects', projectsRouter)
+server.use("/api/actions", actionsRouter)
+server.use("/api/projects", projectsRouter)
 
-server.use('*', (req, res) => { // catch all
-    res.status(404).send(`
-      <h2>Lambda Sprint 1 API</h2>
-      <p>Oops, can't find that!</p>
-    `);
+server.get("/", (req, res) => {
+    res.send("Hello from Express");
   });
 
 server.use((err, req, res, next) => {
