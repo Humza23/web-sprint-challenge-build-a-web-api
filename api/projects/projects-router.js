@@ -62,9 +62,9 @@ router.delete('/:id', (req, res, next) => {
     Projects.remove(req.params.id)
     .then(deleted => {
         if (deleted > 0) {
-            res.status(200).json({ message: 'The adopter has been nuked' });
+            res.status(200).json({ message: 'The project has been nuked' });
           } else {
-            res.status(404).json({ message: 'The adopter could not be found' });
+            res.status(404).json({ message: 'The project could not be found' });
           }
     })
     .catch(next)
